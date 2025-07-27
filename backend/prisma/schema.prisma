@@ -8,7 +8,7 @@ generator client {
 datasource db {
   provider     = "mysql"
   url          = env("DATABASE_URL")
-  relationMode = "prisma" // Best practice for SingleStore
+  relationMode = "prisma"
 }
 
 model Bookmark {
@@ -20,6 +20,6 @@ model Bookmark {
 
   embedding Unsupported("vector(768)")
 
-  @@id([id]) // This is the crucial fix for SingleStore's sharding
+  @@id([id])
   @@map("bookmarks")
 }
